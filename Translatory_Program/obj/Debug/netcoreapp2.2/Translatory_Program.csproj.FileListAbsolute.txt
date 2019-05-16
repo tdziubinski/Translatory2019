@@ -1,0 +1,11 @@
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\bin\Debug\netcoreapp2.2\Translatory_Program.deps.json
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\bin\Debug\netcoreapp2.2\Translatory_Program.runtimeconfig.json
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\bin\Debug\netcoreapp2.2\Translatory_Program.runtimeconfig.dev.json
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\bin\Debug\netcoreapp2.2\Translatory_Program.dll
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\bin\Debug\netcoreapp2.2\Translatory_Program.pdb
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.csprojAssemblyReference.cache
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.csproj.CoreCompileInputs.cache
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.AssemblyInfoInputs.cache
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.AssemblyInfo.cs
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.dll
+D:\ATH\VI SEMESTR\Translatory\Translatory_Program\Translatory_Program\obj\Debug\netcoreapp2.2\Translatory_Program.pdb
