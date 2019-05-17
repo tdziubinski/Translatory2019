@@ -13,22 +13,26 @@ namespace Translatory_Tokeny_2403
         public string wartosc { get; set; }
     }
 
-
     class Program
     {
 
-        public static List<Wyrazenia> wyrazeniaLista = new List<Wyrazenia>();
-        public static List<Wyrazenia> inneLista = new List<Wyrazenia>();
+        public static List<Wyrazenia> wyrazeniaLista = new List<Wyrazenia>();//docelowa
+        public static List<Wyrazenia> inneLista = new List<Wyrazenia>();//dla spacji itp
 
         public static string example3;
         static void Main(string[] args)
         {
-            example3 = @"x12 + 38948 -  ( 44.55.66) 3 7* ! Zmienna 9 d";
-           
+            example3 = @"x12  -38948- (-44)  ( -44.55.66) 3 7* ! Zmienna5445gfg d    
+
+            d         67576h   
+            ";
+         
             // '+', '*', '-', '/', '(', ')');
 
             string exampleToDisplay = example3;
-          
+
+            //example3= example3.Replace(" ","");
+
             int i = 0;
 
             while (i < example3.Length)
@@ -38,13 +42,38 @@ namespace Translatory_Tokeny_2403
 
                 if (example3[i] == '+' || example3[i] == '*' || example3[i] == '-' || example3[i] == '/')
                 {
-                    if (example3[i] == '-' && Char.IsNumber(example3[i + 1])) { result = CheckNumber(); i = 0; }//ujemny int lub double
+                    if (example3[i] == '-' && Char.IsNumber(example3[i + 1]))
+                    {
+                        if (CheckMinusIntOrDouble())
+                        { result = CheckNumber(); i = 0; }
+                        else
+                        {
+                            DodajOperator(i);
+                            result = example3[i].ToString(); i = 0;
+                        }
+                    }
+                    else if (example3[i] == '-' && Char.IsWhiteSpace(example3[i + 1]))
+                    {
+                        if (CheckAfterWhitespace())
+                        {
+                            if (CheckMinusIntOrDouble())
+                            { result = CheckNumber(); i = 0; }
+                            else
+                            {
+                                DodajOperator(i);
+                                result = example3[i].ToString(); i = 0;
+                            }
+                        }
+                        else
+                        {
+                            DodajOperator(i);
+                            result = example3[i].ToString(); i = 0;
+                        }
+                    }
+                    // ; && Char.IsNumber(example3[i + 1]))  { result = CheckNumber(); i = 0; }
                     else
                     {
-                        Wyrazenia wyrazenia = new Wyrazenia();
-                        wyrazenia.typ = "operator";
-                        wyrazenia.wartosc = example3[i].ToString();
-                        wyrazeniaLista.Add(wyrazenia);
+                        DodajOperator(i);
                         result = example3[i].ToString(); i = 0;
                     }
                 }
@@ -81,6 +110,13 @@ namespace Translatory_Tokeny_2403
             }
             Console.Read();
         }
+        public static void DodajOperator(int i)
+        {
+            Wyrazenia wyrazenia = new Wyrazenia();
+            wyrazenia.typ = "operator";
+            wyrazenia.wartosc = example3[i].ToString();
+            wyrazeniaLista.Add(wyrazenia);
+        }
         public static string CheckSpaces()
         {
             Regex reg = new Regex(@"\s+");//do znalezienia
@@ -92,11 +128,33 @@ namespace Translatory_Tokeny_2403
 
             return result;
         }
+        public static bool CheckAfterWhitespace()
+        {
+            var tempex3 = example3;
+            char[] tempex4 = tempex3.Replace(" ", "").ToCharArray();
+            if (Char.IsNumber(tempex4.FirstOrDefault())) return true;
+            return false;
+        }
+
+
+        public static bool CheckMinusIntOrDouble()
+        {
+            if (wyrazeniaLista.Count == 0) return true;
+            if (wyrazeniaLista.Last().typ == "nawias" || wyrazeniaLista.Last().typ == "operator")
+            {
+                return true;
+
+            }
+
+            return false;
+        }
         public static string CheckLetter()
         {
-            Regex reg = new Regex(@"([a-zA-Z]+\d+)|([a-zA-Z]+)");//do znalezienia
+            //Regex reg = new Regex(@"([a-zA-Z]+\d+)|([a-zA-Z]+)");//do znalezienia
+            Regex reg = new Regex(@"([a-zA-Z]+\w+)|([a-z]){1,}");
+            string result = "";
+            result = reg.Match(example3).Value;
 
-            string result = reg.Match(example3).Value;//tylko pierwszy
 
 
             Wyrazenia wyrazenia = new Wyrazenia();
@@ -110,9 +168,10 @@ namespace Translatory_Tokeny_2403
         public static string CheckNumber()
         {
             bool isDouble = false;
-
+            //Regex reg = new Regex(@"-\s+\d+|\d+");
             Regex reg = new Regex(@"-\d+|\d+");
-            string result1 = reg.Match(example3).Value;//tylko pierwszy
+
+            string result1 = reg.Match(example3).Value;//dodanie do listy
 
             string example4 = example3.Substring(result1.Length);//ucina pierwsza wartosc int        
 
@@ -123,6 +182,7 @@ namespace Translatory_Tokeny_2403
             if (isDouble)
             {
 
+                //Regex reg1 = new Regex(@"-?\d+(?:\.\d+)?");
                 Regex reg1 = new Regex(@"-?\d+(?:\.\d+)?");
                 string result = reg1.Match(example3).Value;//tylko pierwszy
 

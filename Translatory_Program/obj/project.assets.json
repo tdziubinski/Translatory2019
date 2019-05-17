@@ -693,11 +693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory_Program\\Translatory_Program.csproj",
+      "projectUniqueName": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory2019\\Translatory_Program\\Translatory_Program.csproj",
       "projectName": "Translatory_Program",
-      "projectPath": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory_Program\\Translatory_Program.csproj",
+      "projectPath": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory2019\\Translatory_Program\\Translatory_Program.csproj",
       "packagesPath": "C:\\Users\\Tomasz\\.nuget\\packages\\",
-      "outputPath": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory_Program\\obj\\",
+      "outputPath": "D:\\ATH\\VI SEMESTR\\Translatory\\Translatory_Program\\Translatory2019\\Translatory_Program\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",
